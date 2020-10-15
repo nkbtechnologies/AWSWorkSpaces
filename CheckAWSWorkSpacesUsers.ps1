@@ -59,8 +59,9 @@ $WKSPWMissingUser | FT * -AutoSize
 
 
 #Output will look like below
-<# WorkSpaceID  Directory    UserNameFromWorkSpaceID WSUserNotFoundInAD    
-- -----------  ---------    ----------------------- ------------------    
+
+# WorkSpaceID  Directory    UserNameFromWorkSpaceID WS-User-State         
+- -----------  ---------    ----------------------- -------------         
 0 ws-7kz54j21c d-976713e89b Chimeuser01             User Disabled         
 1 ws-8b9l90hz9 d-976713e89b AMZTestU15              User Disabled         
 2 ws-dv6qlqkg7 d-976713e89b nalinbx                 User Deleted          
@@ -71,4 +72,3 @@ $WKSPWMissingUser | FT * -AutoSize
 7 ws-wc5d4nd1v d-976713e89b AMZTestU16              User Disabled         
 8 ws-gz35yd7hv d-976713e89b AMZTestU18              User Deleted          
 
-#>
