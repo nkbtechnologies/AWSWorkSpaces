@@ -24,7 +24,7 @@ do
         $TempInformation | Add-Member -MemberType NoteProperty -Name 'WorkSpaceID' -Value $WorkSpaces[$index].WorkspaceId
         $TempInformation | Add-Member -MemberType NoteProperty -Name  'Directory' -Value $Directory
         $TempInformation | Add-Member -MemberType NoteProperty -Name 'UserNameFromWorkSpaceID' -Value $WorkSpaces[$index].UserName
-        $TempInformation | Add-Member -MemberType NoteProperty -Name 'WSUserNotFoundInAD' -Value 'User Deleted'
+        $TempInformation | Add-Member -MemberType NoteProperty -Name 'WS-User-State' -Value 'User Deleted'
         $WKSPWMissingUser += $TempInformation
 
 
@@ -36,13 +36,13 @@ do
              $TempInformation | Add-Member -MemberType NoteProperty -Name 'WorkSpaceID' -Value $WorkSpaces[$index].WorkspaceId
         $TempInformation | Add-Member -MemberType NoteProperty -Name  'Directory' -Value $Directory
         $TempInformation | Add-Member -MemberType NoteProperty -Name 'UserNameFromWorkSpaceID' -Value $WorkSpaces[$index].UserName
-        $TempInformation | Add-Member -MemberType NoteProperty -Name 'WSUserNotFoundInAD' -Value 'User Found and enabled'
+        $TempInformation | Add-Member -MemberType NoteProperty -Name 'WS-User-State' -Value 'User Found and enabled'
         $WKSPWMissingUser += $TempInformation
             }else{
              $TempInformation | Add-Member -MemberType NoteProperty -Name 'WorkSpaceID' -Value $WorkSpaces[$index].WorkspaceId
         $TempInformation | Add-Member -MemberType NoteProperty -Name  'Directory' -Value $Directory
         $TempInformation | Add-Member -MemberType NoteProperty -Name 'UserNameFromWorkSpaceID' -Value $WorkSpaces[$index].UserName
-        $TempInformation | Add-Member -MemberType NoteProperty -Name 'WSUserNotFoundInAD' -Value 'User Disabled'
+        $TempInformation | Add-Member -MemberType NoteProperty -Name 'WS-User-State' -Value 'User Disabled'
         $WKSPWMissingUser += $TempInformation
 
            
@@ -56,6 +56,8 @@ while ($index -lt $WorkSpaces.Length)
 
 $WKSPWMissingUser | Export-Csv -Path C:\Temp\WorkSpaceWithNoUser-$Run.csv -NoClobber -NoTypeInformation -Force
 $WKSPWMissingUser | FT * -AutoSize
+
+
 #Output will look like below
 <# WorkSpaceID  Directory    UserNameFromWorkSpaceID WSUserNotFoundInAD    
 - -----------  ---------    ----------------------- ------------------    
